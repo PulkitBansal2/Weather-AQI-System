@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException, Query
 import httpx
 
 # Replace "your_api_key_here" with your actual OpenWeatherMap API key
-API_KEY = os.getenv("OPENWEATHER_API_KEY", "d74251e7dddd1ad3049966d59a6df0a4")
+API_KEY = os.getenv("OPENWEATHER_API_KEY", "")
 app = FastAPI(title="Weather API - Selected Fields")
 
 @app.get("/weather", summary="Get selected weather and air quality data")
