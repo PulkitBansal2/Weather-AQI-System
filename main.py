@@ -55,18 +55,7 @@ async def get_weather(city: str = Query(..., description="Name of the city")):
     weather_description = weather_data.get("weather", [{}])[0].get("description", "No description")
     # Extract AQI from air_data (expected structure: {"list": [{"main": {"aqi": value}}]})
     aqi = air_data.get("list", [{}])[0].get("main", {}).get("aqi")
-    
-    # 5. Return only the selected data as the response
-    # return {
-    #     "city": city,
-    #     "temperature": temperature,
-    #     "feels_like": feels_like,
-    #     "temp_min": temp_min,
-    #     "temp_max": temp_max,
-    #     "humidity": humidity,
-    #     "weather_description": weather_description,
-    #     "aqi": aqi
-    # }
+
     return {
     "city": city,
     "temperature": {"value": temperature, "unit": "°C"},
